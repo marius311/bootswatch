@@ -14,24 +14,30 @@
 @gray-light:             #888;   // #999
 @gray-lighter:           #ADAFAE; // #eee
 
-@brand-primary:         #2A9FD6;
-@brand-success:         #77B300;
-@brand-info:            #9933CC;
+
+@blue:    #5588bb;
+@purple:  #BB6699;
+@black:   #161616;
+@white:   #E0E0E0;
+@gray:    #333333;
+
+@brand-primary:         @gray;
+@brand-success:         @gray;
+@brand-info:            @gray;
 @brand-warning:         #FF8800;
 @brand-danger:          #CC0000;
 
 
 //== Scaffolding
-//
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #060606;
+@body-bg:               @black;
 //** Global text color on `<body>`.
-@text-color:            @gray-light;
+@text-color:            @white;
 
 //** Global textual link color.
-@link-color:            @brand-primary;
+@link-color:            @purple;
 //** Link hover color set via `darken()` function.
 @link-hover-color:      @link-color;
 //** Link hover decoration.
@@ -41,23 +47,22 @@
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-
-@font-family-sans-serif:  "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Merriweather Sans", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
+@font-size-base:          15px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
 
-@font-size-h1:            56px;
-@font-size-h2:            45px;
-@font-size-h3:            34px;
-@font-size-h4:            24px;
-@font-size-h5:            20px;
-@font-size-h6:            16px;
+@font-size-h1:            ceil((56px * 0.6));
+@font-size-h2:            ceil((45px * 0.6));
+@font-size-h3:            ceil((34px * 0.6));
+@font-size-h4:            ceil((24px * 0.6));
+@font-size-h5:            ceil((20px * 0.6));
+@font-size-h6:            ceil((16px * 0.6));
 
 //** Unit-less `line-height` for use in components like buttons.
 @line-height-base:        1.428571429; // 20/14
@@ -127,9 +132,9 @@
 @table-condensed-cell-padding:  5px;
 
 //** Default background color used for all tables.
-@table-bg:                      darken(@gray-darker, 4%);
+@table-bg:                      @body-bg;
 //** Background color used for `.table-striped`.
-@table-bg-accent:               darken(@table-bg, 6%);
+@table-bg-accent:               lighten(@table-bg, 3%);
 //** Background color used for `.table-hover`.
 @table-bg-hover:                @gray-dark;
 @table-bg-active:               @table-bg-hover;
@@ -145,12 +150,12 @@
 @btn-font-weight:                normal;
 
 @btn-default-color:              #fff;
-@btn-default-bg:                 lighten(@gray-dark, 10%);
+@btn-default-bg:                 @brand-primary;
 @btn-default-border:             @btn-default-bg;
 
 @btn-primary-color:              @btn-default-color;
-@btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             @btn-primary-bg;
+@btn-primary-bg:                 @btn-default-bg;
+@btn-primary-border:             @btn-default-border;
 
 @btn-success-color:              @btn-default-color;
 @btn-success-bg:                 @brand-success;
@@ -181,7 +186,7 @@
 //##
 
 //** `<input>` background color
-@input-bg:                       #fff;
+@input-bg:                       @table-bg-accent;
 //** `<input disabled>` background color
 @input-bg-disabled:              @gray-lighter;
 
@@ -219,7 +224,7 @@
 @legend-border-color:            @gray-dark;
 
 //** Background color for textual input addons
-@input-group-addon-bg:           @gray-lighter;
+@input-group-addon-bg:           @gray;
 //** Border color for textual input addons
 @input-group-addon-border-color: @input-border;
 
@@ -358,7 +363,7 @@
 
 // Basics of a navbar
 @navbar-height:                    50px;
-@navbar-margin-bottom:             @line-height-computed;
+@navbar-margin-bottom:             0px;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
@@ -702,7 +707,7 @@
 //
 //##
 
-@panel-bg:                    @gray-darker;
+@panel-bg:                    @table-bg-accent;
 @panel-body-padding:          15px;
 @panel-heading-padding:       10px 15px;
 @panel-footer-padding:        @panel-heading-padding;
@@ -710,15 +715,15 @@
 
 //** Border color for elements within panels
 @panel-inner-border:          @gray-dark;
-@panel-footer-bg:             lighten(@gray-darker, 10%);
+@panel-footer-bg:             lighten(@panel-bg, 2%);
 
 @panel-default-text:          @text-color;
 @panel-default-border:        @panel-inner-border;
-@panel-default-heading-bg:    @panel-footer-bg;
+@panel-default-heading-bg:    lighten(@table-bg, 5%);
 
-@panel-primary-text:          #fff;
-@panel-primary-border:        @brand-primary;
-@panel-primary-heading-bg:    @brand-primary;
+@panel-primary-text:          @panel-default-text;
+@panel-primary-border:        @panel-default-border;
+@panel-primary-heading-bg:    @panel-default-heading-bg;
 
 @panel-success-text:          @state-success-text;
 @panel-success-border:        @state-success-border;
@@ -829,15 +834,15 @@
 //
 //##
 
-@code-color:                  #c7254e;
-@code-bg:                     #f9f2f4;
+@code-color:                  @white;
+@code-bg:                     @gray;
 
 @kbd-color:                   #fff;
 @kbd-bg:                      #333;
 
-@pre-bg:                      #f5f5f5;
-@pre-color:                   @gray-dark;
-@pre-border-color:            #ccc;
+@pre-bg:                      @table-bg-accent;
+@pre-color:                   @white;
+@pre-border-color:            @table-border-color;
 @pre-scrollable-max-height:   340px;
 
 
@@ -856,7 +861,7 @@
 //** Blockquote small color
 @blockquote-small-color:      @gray;
 //** Blockquote font size
-@blockquote-font-size:        (@font-size-base * 1.25);
+@blockquote-font-size:        @font-size-base;
 //** Blockquote border color
 @blockquote-border-color:     @gray-dark;
 //** Page header border color
@@ -866,4 +871,10 @@
 //** Point at which .dl-horizontal becomes horizontal
 @dl-horizontal-breakpoint:    @grid-float-breakpoint;
 //** Horizontal line color.
-@hr-border:                   @gray-dark;
+@hr-border:                   @gray;
+
+
+
+tr.bg-info {
+    background-color: darken(@blue,35%);
+}
