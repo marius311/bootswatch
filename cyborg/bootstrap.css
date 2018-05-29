@@ -6758,6 +6758,9 @@ button.close {
 tr.bg-info {
   background-color: #1b2f43;
 }
+td[style="border-left: 5px solid LightGreen"] {
+  border-left-color: #5588bb !important;
+}
 .text-primary,
 .text-primary:hover {
   color: #333333;
